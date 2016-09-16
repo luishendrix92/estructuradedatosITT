@@ -21,6 +21,7 @@ class TorreDeHanoi {
   (int discos, string origen, string aux, string destino) {
     // Hay discos para mover? Moverlos, si no, termina recursión
     if (discos > 0) {
+      
       /* PASO #1: Mover los discos de arriba (discos - 1)
       || desde el inicio hacia la torre auxiliar.
       \\===============================================*/
