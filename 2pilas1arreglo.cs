@@ -31,7 +31,6 @@ class PilaDoble {
 		posicion2 = tamaño / 2;
 		tope2     = tamaño;
 		arreglo   = new string[tamaño];
-		
 		TamPila1  = tope1;
 		TamPila2  = tamaño - tope1;
 	}
