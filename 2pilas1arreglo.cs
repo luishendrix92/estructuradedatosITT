@@ -23,7 +23,6 @@ i  ->    0     1     2      3     4     _5
 class PilaDoble {
 	private string[] arreglo;
 	private int posicion1, posicion2, tope1, tope2;
-	public int TamPila1, TamPila2;
 	
 	public PilaDoble(int tamaño) {
 		posicion1 = 0;
@@ -31,8 +30,6 @@ class PilaDoble {
 		posicion2 = tamaño / 2;
 		tope2     = tamaño;
 		arreglo   = new string[tamaño];
-		TamPila1  = tope1;
-		TamPila2  = tamaño - tope1;
 	}
 	
 	public void Push1(string dato) {
