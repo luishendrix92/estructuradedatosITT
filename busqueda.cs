@@ -15,18 +15,18 @@ class Pila {
       Console.WriteLine("La pila ya está llena");
     } else {
       dato[posicion] = ndato;
-			posicion++;
+      posicion++;
     }
   }
   
   public string Pop() {
     if (posicion <= 0) {
-			Console.WriteLine("La pila 1 está vacía");
-			return null;
-		} else {
-			posicion--;
-			return dato[posicion];
-		}
+      Console.WriteLine("La pila 1 está vacía");
+      return null;
+    } else {
+      posicion--;
+      return dato[posicion];
+    }
   }
   
   public void busqueda(string ndato) {
