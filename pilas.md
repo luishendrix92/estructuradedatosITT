@@ -4,9 +4,12 @@
 
 Una pila representa una estructura lineal de datos en que se puede agregar o quitar lementos únicamente por uno de los dos extremos. Los elementosde una pila se eliminan en orden inverso al que se insertaron. Debido a esta carateristica, se le conoce como estructura LIFO (last input, first output).
 
-- Existen muchos casos prácticos en los que se utiliza la idea de pila:
+Existen muchos casos prácticos en los que se utiliza la idea de pila:
+
 - **Ejemplo**: pila de platos, en el supermercado latas.
+
 - Las pilas son estructuras lineales como los arreglos.
+
 - Sus componentes ocupan lugares sucesivos en la ED y c/u tienen un único sucesor/predecesor, con excepción del primero/último.
 
 ![Imagen Stack](https://www.tutorialspoint.com/data_structures_algorithms/images/stack_representation.jpg)
@@ -16,8 +19,11 @@ Una pila representa una estructura lineal de datos en que se puede agregar o qui
 ### Representación
 
 - Las pilas no son estructuras fundamentales de datos.
+
 - No están definindas como tales en los lenguajes de programación.
+
 - Para su representación requiren de otras E.D.
+
 - Arreglos
 - Listas
 
