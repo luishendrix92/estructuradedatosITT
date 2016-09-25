@@ -1,5 +1,7 @@
 using System;
 
+// Este comment fue añadido apenas
+
 class PilaDoble {
   private string[] arreglo;
   private int posicion1, posicion2, tope1, tope2;
