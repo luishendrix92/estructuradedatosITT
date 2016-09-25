@@ -6,7 +6,7 @@ class TorreDeHanoi {
 
   public int MinimoDeMovimientos {
     get { return (int) Math.Pow(2, discos) - 1; }
-  } // Fórmula "M = 2^n - 1" donde "n" son los discos
+  } // Fórmula "M = 2^n - 1" donde "n" son los discos a mover
 
   public TorreDeHanoi
   (int n = 3, string o = "1", string a = "2", string d = "3") {
