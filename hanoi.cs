@@ -14,7 +14,7 @@ class TorreDeHanoi {
     auxiliar = a; destino  = d;
   } // Fin de constructor con valores default
 
-  /* PASO #2: Mover el disco que quedó en el
+  /* PASO #2:  Mover el disco que quedó en el
   || origen hacia el destino definido o torre #3
   \\==========================================*/
   public static void MoverDiscos
