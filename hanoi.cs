@@ -53,5 +53,3 @@ class Programa {
     torre.MostrarSolucion();
   } // Fin de método principal
 } // Fin de clase programa
-
-//git remote add origin 'git@github.com:username/repo.git'
