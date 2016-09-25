@@ -28,7 +28,7 @@ class TorreDeHanoi {
       MoverDiscos(discos - 1, origen, destino, aux);
 
       // Imprimir el movimiento que acabamos de hacer
-      Console.WriteLine("Mueve el disco {0} de la torre {1} a la torre {2}",
+      Console.WriteLine("Mueve el disco  {0} de la torre {1} a la torre {2}",
         discos, origen, destino);
 
       /* PASO #3: Mover los discos que quedaron en la
