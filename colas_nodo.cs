@@ -1,13 +1,15 @@
-public class nodo {
+using System;
+
+public class Nodo {
   public int dato;
-  public int siguiente;
+  public Nodo siguiente;
 }
 
-public class case_cola {
-  public nodo COLA_ULTIMO, COLA_PRIMERO;
+public class Cola {
+  public Nodo COLA_ULTIMO, COLA_PRIMERO;
 
-  public void insertar(int dato) {
-    nodo P = new nodo();
+  public void Insertar(int dato) {
+    Nodo P = new Nodo();
     P.dato = dato;
     P.siguiente = null;
 
@@ -22,8 +24,8 @@ public class case_cola {
     COLA_ULTIMO = P;
   }
 
-  public int leer() {
-    nodo P = COLA_PRIMERO;
+  public int Leer() {
+    Nodo P = COLA_PRIMERO;
     int dato;
 
     if (P != null) {
@@ -37,33 +39,32 @@ public class case_cola {
 
     return dato;
   }
+}
 
-  class Program {
-    static void Main(string[] args) {
-      clase_cola c = new clase_cola();
-      int dato;
-      int numero;
+class Program {
+  static void Main(string[] args) {
+    Cola c = new Cola();
+    int dato;
+    int numero;
 
-      Console.WriteLine("Guardando información en cola");
-      c.COLA_PRIMERO = null;
-      c.COLA_ULTIMO = null;
+    Console.WriteLine("Guardando información en cola");
+    c.COLA_PRIMERO = null;
+    c.COLA_ULTIMO = null;
 
-      for (int i = 0; i < 10; i++) {
-        Console.Write("Agrega el número: ");
-        numero = int.Parse(Console.ReadLine());
-        c.insertar(numero);
-      }
-
-      Console.WriteLine("Leyendo información de cola");
-      dato = c.leer();
-
-      while (dato >= 0) {
-        Console.Writeline(dato);
-        dato = c.leer();
-      }
-
-      Console.WriteLine("Cola vacía");
-      Console.Readkey();
+    for (int i = 0; i < 10; i++) {
+      Console.Write("Agrega el número: ");
+      numero = int.Parse(Console.ReadLine());
+      c.Insertar(numero);
     }
+
+    Console.WriteLine("Leyendo información de cola");
+    dato = c.Leer();
+
+    while (dato >= 0) {
+      Console.WriteLine(dato);
+      dato = c.Leer();
+    }
+
+    Console.WriteLine("Cola vacía");
   }
 }
