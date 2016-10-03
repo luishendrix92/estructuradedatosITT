@@ -1,11 +1,6 @@
 using System.Collections;
 using System;
 
-/**
-Console.WriteLine("\nPRESIONE CUALQUIER TECLA PARA VOLVER AL MENÚ...");
-Console.Readkey();
-**/
-
 namespace Unidad3 {
   class Menu {
     static void Main(string[] args) {      
@@ -16,12 +11,12 @@ namespace Unidad3 {
         Console.WriteLine("Escribe 0 y [ENTER] para salir del programa!");
         Console.WriteLine("--------------------------------------------");
         Console.WriteLine("\nPrograma 1: Pilas con nodos");
-        Console.WriteLine("Programa 2: Pilas con librerías");
+        Console.WriteLine("Programa 2: Pilas con librería del sistema");
         Console.WriteLine("Programa 3: Pilas con arreglos: n cantidad");
-        Console.WriteLine("Programa 4: Pilas con arreglos: par/impar");
+        Console.WriteLine("Programa 4: Pilas con arreglos: doble");
         Console.WriteLine("Programa 5: Pilas con arreglos: búsqueda");
         Console.WriteLine("Programa 6: Colas con nodos");
-        Console.WriteLine("Programa 7: Colas con librerías");
+        Console.WriteLine("Programa 7: Colas con librería del sistema");
         Console.WriteLine("Programa 8: Colas con arreglos");
         
         int opc = CapturarOpcion(0, 8);
