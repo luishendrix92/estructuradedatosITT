@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 class Nodo {
   public int dato;
   public Nodo sig;
@@ -9,24 +14,20 @@ class Nodo {
 }
 
 class ListaE {
-  Nodo primero;
-  Nodo actual;
+  public Nodo primero;
+  public Nodo actual;
   
   public ListaE() {}
-  
-  public bool ListaVacia() {
-    return primero ==  null;
-  }
   
   public void Insertar(int dato) {
     Nodo anterior;
     
-    if (Listavacia() || primero.dato > dato) {
+    if (ListaVacia() || primero.dato > dato) {
       primero = new Nodo(dato, primero);
     } else {
       anterior = primero;
       
-      while (anterior.sig != null && anterior.sig.dato <= dato)
+      while (anterior.sig != null && anterior.sig.dato <= dato) {
         anterior = anterior.sig;
         anterior.sig = new Nodo(dato, anterior.sig);
       }
@@ -42,7 +43,7 @@ class ListaE {
       auxiliar = auxiliar.sig;
     }
     
-    Console.Write("Ya no hay otro elemento!");
+    Console.WriteLine("Ya no hay otro elemento!");
   }
   
   public void Siguiente() {
@@ -71,7 +72,7 @@ class ListaE {
     }
   }
 
-  public void Borrar(dato) {
+  public void Borrar(int dato) {
     Nodo anterior, nodo;
     nodo = primero;
     anterior = null;
@@ -89,6 +90,10 @@ class ListaE {
       anterior.sig = nodo.sig;
     }
   }
+  
+  public bool ListaVacia() {
+    return primero ==  null;
+  }
 }
 
 class Programa {
@@ -98,6 +103,7 @@ class Programa {
     LST.Insertar(90);
     LST.Insertar(12);
     LST.Insertar(24);
+
     
     LST.Mostrar();
     LST.Borrar(90);
