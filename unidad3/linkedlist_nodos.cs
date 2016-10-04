@@ -8,13 +8,15 @@ class Nodo {
   }
 }
 
-class Lista {
+class ListaE {
   Nodo primero;
   Nodo actual;
   
   public ListaE() {}
   
-  public bool ListaVacia() {}
+  public bool ListaVacia() {
+    return primero ==  null;
+  }
   
   public void Insertar(int dato) {
     Nodo anterior;
@@ -51,6 +53,24 @@ class Lista {
     actual = primero;
   }
 
+  public bool Actual() {
+    return actual != null;
+  }
+
+  public int ValorActual() {
+    return actual.dato;
+  }
+
+  public void Ultimo() {
+    Primero();
+    
+    if (!ListaVacia()) {
+      while (actual.sig != null) {
+        Siguiente();
+      }
+    }
+  }
+
   public void Borrar(dato) {
     Nodo anterior, nodo;
     nodo = primero;
@@ -68,5 +88,19 @@ class Lista {
     } else {
       anterior.sig = nodo.sig;
     }
+  }
+}
+
+class Programa {
+  static void Main() {
+    ListaE LST = new ListaE();
+    
+    LST.Insertar(90);
+    LST.Insertar(12);
+    LST.Insertar(24);
+    
+    LST.Mostrar();
+    LST.Borrar(90);
+    LST.Mostrar();
   }
 }
