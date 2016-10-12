@@ -103,7 +103,6 @@ class Programa {
     LST.Insertar(90);
     LST.Insertar(12);
     LST.Insertar(24);
-
     
     LST.Mostrar();
     LST.Borrar(90);
