@@ -1,52 +1,8 @@
 using System;
 
-class Nodo {
-  public Nodo anterior, siguiente;
-  public int dato;
-  
-  public Nodo
-  (int dat, Nodo ant = null, Nodo sig = null) {
-    this.dato      = dat;
-    this.anterior  = ant;
-    this.siguiente = sig;
-  }
-  
-  // MÉTODOS PÚBLICOS ESTÁTICOS
-  // ----------------------------------------------------
-  public static Nodo Ultimo(Nodo actual) {
-    if (actual.siguiente == null) return actual;
-    
-    return Nodo.Ultimo(actual.siguiente);
-  }
-  
-  public static Nodo Brincar(Nodo actual, int brincos) {
-    if (brincos == 0) return actual;
-    
-    return Nodo.Brincar(actual.siguiente, brincos - 1);
-  }
-  
-  public static Nodo Reversa(Nodo actual, Nodo _reversa) {
-    if (actual.siguiente == null) return _reversa;
-    
-    _reversa = new Nodo(actual.siguiente.dato, null, _reversa);
-    _reversa.siguiente.anterior = _reversa;
-    
-    return Reversa(actual.siguiente, _reversa);
-  }
-  
-  public static void Swap(Nodo a, Nodo b) {
-    if (a != b) {
-      int temp_a = a.dato;
-      
-      a.dato = b.dato;
-      b.dato = temp_a;
-    }
-  }
-}
-
 class ListaDE {
   private Nodo raiz = null;
-  public int Length  = 0;
+  public int Length = 0;
   
   public bool EstaVacia {
     get { return raiz == null; }
@@ -70,27 +26,25 @@ class ListaDE {
   //---------------------------------------------------------
   // Para la lectura de datos
   public int EnIndex(int index) {
-    if (index + 1 > Length) return -1;
+    if (index + 1 > Length || index < 0) return -1;
     
     return Nodo.Brincar(raiz, index).dato;
   }
   
   public void Mostrar() {
     if (EstaVacia) {
-      Console.WriteLine("[ ]");
+      Console.WriteLine("[ ] | n = 0");
     } else if (Length == 1) {
-      Console.WriteLine("null<-[{0}]->null", raiz.dato);
+      Console.WriteLine("null<-[{0}]->null | n = 1", raiz.dato);
     } else {
       Nodo actual = raiz;
       
       Console.Write("null");
-      
       while (actual != null) {
         Console.Write("<-[{0}]->", actual.dato);
         actual = actual.siguiente;
       }
-      
-      Console.Write("null\n");
+      Console.Write("null | n = {0}\n", Length);
     }
   }
   
@@ -121,8 +75,6 @@ class ListaDE {
   }
   
   public void InsEnSuLugar(int dato) {
-    /* Inserta el dato de forma que quede
-    ordenado automáticamente en su lugar */
     if (EstaVacia) {
       Push(dato);
     } else {
@@ -144,7 +96,7 @@ class ListaDE {
   }
   
   public bool InsFrenteA(int index, int dato) {
-    if (index + 1 > Length) return false;
+    if (index + 1 > Length || index < 0) return false;
     
     Nodo objetivo  = Nodo.Brincar(raiz, index);
     Nodo recorrido = objetivo.siguiente;
@@ -158,7 +110,7 @@ class ListaDE {
   }
   
   public bool InsDetrasDe(int index, int dato) {
-    if (index + 1 > Length) return false;
+    if (index + 1 > Length || index < 0) return false;
     
     if (index == 0) {
       Unshift(dato);
@@ -205,7 +157,7 @@ class ListaDE {
   }
   
   public bool Borrar(int index) {
-    if (index + 1 > Length) return false;
+    if (index + 1 > Length || index < 0) return false;
     
     if (index == 0) {
       Shift();
@@ -254,10 +206,9 @@ class ListaDE {
           Nodo.Swap(actual, actual.siguiente);
           ordenado = false;
         }
-        
         actual = actual.siguiente;
       }
-      
+      // Llamada recursiva
       Ordenar(ordenado);
     }
   }
@@ -273,7 +224,7 @@ class ListaDE {
   }
   
   public bool Reemplazar(int index, int dato) {
-    if (index + 1 > Length) return false;
+    if (index + 1 > Length || index < 0) return false;
     
     Nodo reemplazado = Nodo.Brincar(raiz, index);
     reemplazado.dato = dato;
@@ -293,12 +244,11 @@ class ListaDE {
 }
 
 class Programa {
-  static void Main (string[] args) {
+  static void Main(string[] args) {
     ListaDE lista = new ListaDE();
     
-    lista.Unshift(-2);
-    lista.Unshift(-1);
-    lista.Mostrar();
+    ControladorPrincipal.Menu(lista);    
+    Console.Clear();
   }
 }
 
