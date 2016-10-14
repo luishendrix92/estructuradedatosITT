@@ -10,8 +10,8 @@ namespace Unidad3 {
     public _Nodo COLA_ULTIMO, COLA_PRIMERO;
 
     public void Insertar(int dato) {
-      _Nodo P = new _Nodo();
-      P.dato = dato;
+      _Nodo P     = new _Nodo();
+      P.dato      = dato;
       P.siguiente = null;
 
       if (COLA_ULTIMO != null) {
@@ -34,8 +34,8 @@ namespace Unidad3 {
         COLA_PRIMERO = P.siguiente;
       } else {
         COLA_PRIMERO = null;
-        COLA_ULTIMO = null;
-        dato = -1;
+        COLA_ULTIMO  = null;
+        dato         = -1;
       }
 
       return dato;
@@ -51,7 +51,7 @@ namespace Unidad3 {
       Console.Clear();
       Console.WriteLine("Guardando información en cola");
       c.COLA_PRIMERO = null;
-      c.COLA_ULTIMO = null;
+      c.COLA_ULTIMO  = null;
 
       for (int i = 0; i < 10; i++) {
         Console.Write("Agrega el número: ");
