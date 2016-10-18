@@ -12,11 +12,11 @@ class Nodo {
 
 class Arbol {
   public Nodo Raiz = new Nodo();
-  
+
   public int Altura {
     get { return Arbol.MaxNivel(Raiz) + 1; }
   }
-  
+
   public int Niveles {
     get { return Arbol.MaxNivel(Raiz); }
   }
@@ -29,16 +29,16 @@ class Arbol {
     if (actual != null) {
       bool esHoja = actual.izq == null && actual.der == null;
       bool esRaiz = nivel == 0;
-      string apendice = esHoja? " | Hoja" : esRaiz? " | Raiz" : "";
-      
-      Console.WriteLine("Nivel {0}: {1}{2}",
+      string apendice = esHoja? "| Hoja" : esRaiz? "| Raiz" : "";
+
+      Console.WriteLine("Nivel {0}: {1} {2}",
         nivel, actual.dato, apendice);
-        
+
       Arbol.Imprimir(actual.izq, nivel + 1);
       Arbol.Imprimir(actual.der, nivel + 1);
     }
   }
-  
+
   private static int MaxNivel(Nodo actual, int nivel = -1) {
     if (actual == null) return nivel;
     
@@ -52,9 +52,9 @@ class Arbol {
 class Programa {
   static void Main(string[] args) {
     Arbol tree = new Arbol();
-    
+
     tree.Raiz.dato = "A";
-    
+
     tree.Raiz.izq  = new Nodo(
       "B",
       new Nodo("D"), // Hoja
@@ -68,10 +68,11 @@ class Programa {
       null,
       new Nodo("F") // Hoja
     );
-    
+
     tree.Imprimir();
-    
-  Console.WriteLine("\nNiveles: {0}", tree.Niveles);
+
+    Console.WriteLine("\nNiveles: {0}", tree.Niveles);
+    Console.WriteLine("Altura: {0}", tree.Altura);
   }
 }
 
