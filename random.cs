@@ -13,7 +13,7 @@ class Program {
       
       numbers[i] = numRandom;
     }
-    
+ 
     for (int i = 0; i < 10; i++) {
       Console.WriteLine("Number of the array on index [{0}]: {1}.", i, numbers[i]);
     }
