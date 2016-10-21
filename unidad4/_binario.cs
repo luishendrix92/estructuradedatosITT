@@ -20,12 +20,21 @@ class Arbol {
   public int Niveles {
     get { return Arbol.MaxNivel(Raiz); }
   }
+  
+  public static void InOrden(Nodo actual, int nivel = 0) {
+    if (actual != null) {
+      bool esHoja = actual.izq == null && actual.der == null;
+      bool esRaiz = nivel == 0;
+      string apendice = esHoja? "| Hoja" : esRaiz? "| Raiz" : "";
 
-  public void Imprimir() {
-    Arbol.Imprimir(Raiz);
+      Arbol.InOrden(actual.izq, nivel + 1);
+      Console.WriteLine("Nivel {0}: {1} {2}",
+        nivel, actual.dato, apendice);
+      Arbol.InOrden(actual.der, nivel + 1);
+    }
   }
   
-  private static void Imprimir(Nodo actual, int nivel = 0) {
+  public static void PreOrden(Nodo actual, int nivel = 0) {
     if (actual != null) {
       bool esHoja = actual.izq == null && actual.der == null;
       bool esRaiz = nivel == 0;
@@ -33,9 +42,21 @@ class Arbol {
 
       Console.WriteLine("Nivel {0}: {1} {2}",
         nivel, actual.dato, apendice);
+      Arbol.PreOrden(actual.izq, nivel + 1);
+      Arbol.PreOrden(actual.der, nivel + 1);
+    }
+  }
+  
+  public static void PostOrden(Nodo actual, int nivel = 0) {
+    if (actual != null) {
+      bool esHoja = actual.izq == null && actual.der == null;
+      bool esRaiz = nivel == 0;
+      string apendice = esHoja? "| Hoja" : esRaiz? "| Raiz" : "";
 
-      Arbol.Imprimir(actual.izq, nivel + 1);
-      Arbol.Imprimir(actual.der, nivel + 1);
+      Arbol.PostOrden(actual.izq, nivel + 1);
+      Arbol.PostOrden(actual.der, nivel + 1);
+      Console.WriteLine("Nivel {0}: {1} {2}",
+        nivel, actual.dato, apendice);
     }
   }
 
@@ -69,7 +90,15 @@ class Programa {
       new Nodo("F") // Hoja
     );
 
-    tree.Imprimir();
+    Console.WriteLine("PRE-ORDEN:");
+    Arbol.PreOrden(tree.Raiz);
+    Console.WriteLine("------------------------");
+    Console.WriteLine("IN-ORDEN:");
+    Arbol.InOrden(tree.Raiz);
+    Console.WriteLine("------------------------");
+    Console.WriteLine("POST-ORDEN:");
+    Arbol.PostOrden(tree.Raiz);
+    Console.WriteLine("------------------------");
 
     Console.WriteLine("\nNiveles: {0}", tree.Niveles);
     Console.WriteLine("Altura: {0}", tree.Altura);
