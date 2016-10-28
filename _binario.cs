@@ -74,20 +74,24 @@ class Programa {
   static void Main(string[] args) {
     Arbol tree = new Arbol();
 
-    tree.Raiz.dato = "A";
+    tree.Raiz.dato = "5";
 
     tree.Raiz.izq  = new Nodo(
-      "B",
-      new Nodo("D"), // Hoja
+      "3",
       new Nodo(
-        "E",
-        new Nodo("G") // Hoja
-      )
+        "1",
+        new Nodo("0")
+      ),
+      new Nodo("4")
     );
     tree.Raiz.der  = new Nodo(
-      "C",
-      null,
-      new Nodo("F") // Hoja
+      "7",
+      new Nodo("6"),
+      new Nodo(
+        "9",
+        new Nodo("8"),
+        new Nodo("10")
+      )
     );
 
     Console.WriteLine("PRE-ORDEN:");
