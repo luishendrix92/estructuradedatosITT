@@ -3,7 +3,12 @@ using System.Threading;
 
 public class Nodo {
   public int dato;
-  public Nodo izquierdo, derecho;
+  public Nodo izquierdo = null;
+  public Nodo derecho = null;
+  
+  public Nodo(int d, Nodo i = null, Nodo _d = null) {
+    dato = d; izquierdo = i; derecho = _d;
+  }
 }
 
 public class ArbolBinario {  
@@ -13,7 +18,7 @@ public class ArbolBinario {
   public int Niveles {
     get { return (raiz == null)? 0 : Altura() - 1; }
   }
-  
+
   public bool EstaVacio {
     get { return raiz == null; }
   }
@@ -24,11 +29,7 @@ public class ArbolBinario {
   
   public void Insertar(int _dato) {
     if (!Existe(_dato)) {
-      Nodo nuevo;
-      nuevo = new Nodo();
-      nuevo.dato = _dato;
-      nuevo.izquierdo = null;
-      nuevo.derecho = null;
+      Nodo nuevo = new Nodo(_dato);
       
       if (raiz == null) {
         raiz = nuevo;
@@ -39,11 +40,8 @@ public class ArbolBinario {
         while (recorrer != null) {
           anterior = recorrer;
           
-          if (_dato < recorrer.dato) {
-            recorrer = recorrer.izquierdo;
-          } else {
-            recorrer = recorrer.derecho;
-          }
+          recorrer = (_dato < recorrer.dato)?
+            recorrer.izquierdo : recorrer.derecho;
         }
         
         if (_dato < anterior.dato) {
@@ -62,11 +60,8 @@ public class ArbolBinario {
       if (_dato == recorrer.dato) {
         return true;
       } else {
-        if (_dato > recorrer.dato) {
-          recorrer = recorrer.derecho;
-        } else {
-          recorrer = recorrer.izquierdo;
-        }
+        recorrer = (_dato > recorrer.dato)?
+          recorrer.derecho : recorrer.izquierdo;
       }
     }
     
@@ -198,9 +193,9 @@ public class ArbolBinario {
     return altura;
   }
   
-  public int NodoMayor() {
-    if (raiz != null) {
-      Nodo recorrer = raiz;
+  private int NodoMayor(Nodo _raiz) {
+    if (_raiz != null) {
+      Nodo recorrer = _raiz;
       
       while (recorrer.derecho != null) {
         recorrer = recorrer.derecho;
@@ -212,9 +207,9 @@ public class ArbolBinario {
     }
   }
   
-  public int NodoMenor() {
-    if (raiz != null) {
-      Nodo recorrer = raiz;
+  private int NodoMenor(Nodo _raiz) {
+    if (_raiz != null) {
+      Nodo recorrer = _raiz;
       
       while (recorrer.izquierdo != null) {
         recorrer = recorrer.izquierdo;
@@ -224,6 +219,14 @@ public class ArbolBinario {
     } else {
       return -1;
     }
+  }
+  
+  public int NodoMayor() {
+    return NodoMayor(raiz);
+  }
+  
+  public int NodoMenor() {
+    return NodoMenor(raiz);
   }
   
   public void EliminarNodoMenor() {
@@ -260,6 +263,31 @@ public class ArbolBinario {
         atras.derecho = recorrer.izquierdo;
       }
     }
+  }
+  
+  public void Eliminar(int _dato) {
+    raiz = Eliminar(raiz, _dato);
+  }
+
+  private Nodo Eliminar(Nodo _raiz, int _dato) {
+    if (_raiz == null) return _raiz;
+    
+    if (_dato < _raiz.dato) {
+      _raiz.izquierdo = Eliminar(_raiz.izquierdo, _dato);
+    } else if (_dato > _raiz.dato) {
+      _raiz.derecho = Eliminar(_raiz.derecho, _dato);
+    } else {
+      if (_raiz.izquierdo == null) {
+        return _raiz.derecho;
+      } else if (_raiz.derecho == null) {
+        return _raiz.izquierdo;
+      }
+      
+      _raiz.dato = NodoMenor(_raiz.derecho);
+      _raiz.derecho = Eliminar(_raiz.derecho, _raiz.dato);
+    }
+    
+    return _raiz;
   }
 }
 

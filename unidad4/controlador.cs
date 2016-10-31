@@ -24,6 +24,9 @@ static class ControladorPrincipal {
         case "D4":
           MP_T4_PostOrdNiv(arbol);
           break;
+        case "E":
+          MP_TE_Eliminar(arbol);
+          break;
         case "D5":
           MP_T5_EliminarMenor(arbol);
           break;
@@ -68,6 +71,20 @@ static class ControladorPrincipal {
     Console.Clear();
     arbol.ImprimirPostOrdenConNivel();
     Helpers.Prompt();
+  }
+  
+  public static void MP_TE_Eliminar(ArbolBinario arbol) {
+    if (!arbol.EstaVacio) {
+      bool leido = true;
+      
+      Console.Write("Dame un dato para eliminar del árbol: ");
+      int dato = Helpers.LeerNumero(ref leido);
+      
+      if (leido) arbol.Eliminar(dato);
+    } else {
+      Console.Write("FRACASO: El árbol está vacío!");
+      Thread.Sleep(1500);
+    }  
   }
   
   public static void MP_T5_EliminarMenor(ArbolBinario arbol) {    

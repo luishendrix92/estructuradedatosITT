@@ -14,10 +14,10 @@ static class Vista {
     arbol.ImprimirPostOrden();
     Console.WriteLine("_____________________________________________________\n");
     
-    Console.WriteLine(".---.        .---.        .---.        .---.");
-    Console.WriteLine("| 1 |        | 2 |        | 3 |        | 4 |");
-    Console.WriteLine("'==='        '==='        '==='        '==='");
-    Console.WriteLine("Insertar     Pr.O Nivel   In.O Nivel   Po.O Nivel\n");
+    Console.WriteLine(".---.        .---.        .---.        .---.        .---.");
+    Console.WriteLine("| 1 |        | 2 |        | 3 |        | 4 |        | E |");
+    Console.WriteLine("'==='        '==='        '==='        '==='        '==='");
+    Console.WriteLine("Insertar     Pr.O Nivel   In.O Nivel   Po.O Nivel   Eliminar\n");
     
     Console.WriteLine(".---.        .---.        .---.        .---.");
     Console.WriteLine("| 5 |        | 6 |        | 7 |        | 8 |");
