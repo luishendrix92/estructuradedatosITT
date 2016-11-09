@@ -38,14 +38,12 @@ class Burbuja {
     }
   }
   
-  public override string ToString() {
-    string orden = "";
-    
+  public void Imprimir() {
     foreach (int num in arreglo) {
-      orden += num + ", ";
+      Console.Write("{0}, ", num);
     }
     
-    return orden + "FIN";
+    Console.WriteLine("FIN");
   }
   
   private void Intercambiar(int a, int b) {
@@ -61,8 +59,8 @@ class Programa {
     Burbuja burbuja = new Burbuja();
     
     burbuja.Llenar();
-    Console.WriteLine(burbuja);
+    burbuja.Imprimir();
     burbuja.Ordenar();
-    Console.WriteLine(burbuja);
+    burbuja.Imprimir();
   }
 }
