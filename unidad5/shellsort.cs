@@ -13,7 +13,7 @@ class Shell {
     arreglo = new int[tamaño];
     
     for (int i = 0, len = arreglo.Length; i < len; i++) {
-      arreglo[i] = rand.Next(100000 + 1);
+      arreglo[i] = rand.Next(100 + 1);
     }
   }
   

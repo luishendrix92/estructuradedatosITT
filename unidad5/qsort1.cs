@@ -4,13 +4,32 @@ class QuickSort {
   int tamaño;
   int[] arreglo;
   
-  public QuickSort(int _tamaño) {
+  /*public QuickSort(int _tamaño) {
     tamaño = _tamaño;
     arreglo = new int[tamaño];
     
     for (int i = 0; i < arreglo.Length; i++) {
       Console.Write("Ingresa el dato {0}: ", i + 1);
       arreglo[i] = Int32.Parse(Console.ReadLine());
+    }
+    
+    quicksort(arreglo, 0, tamaño - 1);
+    mostrar();
+  }*/
+  
+  /* Genera datos random */
+  public QuickSort(int _tamaño) {
+    tamaño = _tamaño;
+    arreglo = new int[_tamaño];
+    Random rand = new Random();
+    int randNum;
+    
+    for (int i = 0; i < arreglo.Length; i++) {
+      do {
+        randNum = rand.Next(tamaño + 1);
+      } while (Array.IndexOf(arreglo, randNum) >= 0);
+      
+      arreglo[i] = randNum;
     }
     
     quicksort(arreglo, 0, tamaño - 1);
