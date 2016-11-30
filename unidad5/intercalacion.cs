@@ -19,14 +19,15 @@ class Intercalacion_Simple {
     // Una vez generados los numeros aleatorios se asignan a los
     // arreglos fijos sobre los cuales se debe trabajar el ordenamiento
     Random Aleatorio = new Random();
+    int max = 100;
     
     for (int i = 0; i < N; i++) {
-      arregloA[i] = Aleatorio.Next(10, 99);
+      arregloA[i] = Aleatorio.Next(1, max + 1);
       TemporalA[i] = arregloA[i];
     }
     
     for (int i = 0; i < M; i++) {
-      arregloB[i] = Aleatorio.Next(10, 99);
+      arregloB[i] = Aleatorio.Next(1, max + 1);
       TemporalB[i] = arregloB[i];
     }
   }
