@@ -12,7 +12,7 @@ Si actual es Null o encontrado? es True:
 
 Variable nodo_siguiente de tipo Nodo
 
-Si número > actual.número:
+Si número es mayor que actual.número:
   nodo_siguiente = actual.derecho
 De lo contrario:
   nodo_siguiente = actual.izquierdo
@@ -38,7 +38,7 @@ Repetir mientras actual no sea Null:
   Si número es actual.número:
     retornar True
   De lo contrario:
-    Si número > actual.número:
+    Si número es mayor que actual.número:
       actual = actual.derecho
     De lo contrario:
       actual = actual.izquierdo
