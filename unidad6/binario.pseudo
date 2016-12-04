@@ -1,0 +1,47 @@
+Pseudocódigo para el algoritmo de búsqueda [Recursivo]:
+=======================================================
+
+Procedimiento: Buscar # Retorna un valor booleano
+Parámetros del procedimiento:
+  "actual"      de tipo Nodo  # Primer valor es la raíz
+  "número"      de tipo Int32 # Eĺ número que se busca
+  "encontrado?" de tipo bool  # Primer valor es False
+-------------------------------------------------------
+Si actual es Null o encontrado? es True:
+  retornar encontrado?
+
+Variable nodo_siguiente de tipo Nodo
+
+Si número > actual.número:
+  nodo_siguiente = actual.derecho
+De lo contrario:
+  nodo_siguiente = actual.izquierdo
+
+# Repetir el procedimiento recursivamente
+Buscar(
+  "actual"      -> nodo_siguiente,
+  "número"      -> número
+  "encontrado?" -> número es actual.número?
+)
+
+
+Pseudocódigo para el algoritmo de búsqueda [Imperativo]:
+========================================================
+
+Procedimiento: Buscar # Retorna un valor booleano
+Parámetros del procedimiento:
+  "número" de tipo Int32 # Eĺ número que se busca
+--------------------------------------------------------
+Variable actual de tipo Nodo = raiz
+
+Repetir mientras actual no sea Null:
+  Si número es actual.número:
+    retornar True
+  De lo contrario:
+    Si número > actual.número:
+      actual = actual.derecho
+    De lo contrario:
+      actual = actual.izquierdo
+
+# Ningún número fue igual al buscado
+retornar False
